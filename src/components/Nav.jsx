@@ -9,7 +9,12 @@ function Nav() {
   const distinctCategories = products && [
     ...new Set(products.map((product) => product.category)),
   ];
-
+  
+  const color = ()=>{
+    return `rgba(${(Math.random() * 255).toFixed()},
+    ${(Math.random() * 255).toFixed()},
+    ${(Math.random() * 255).toFixed()},0.4)`
+  }
   return (
     <nav className="w-[15%] h-full bg-zinc-50 flex flex-col items-center pt-5 text-black">
       {/* Link to create a new product */}
@@ -32,7 +37,7 @@ function Nav() {
               to={`/?category=${category}`}
               className="mb-3 flex items-center hover:text-blue-300 transition-colors duration-300"
             >
-              <span className="mr-2 block w-[15px] h-[15px] bg-blue-100 rounded-full"></span>
+              <span style={{backgroundColor:color()}} className="mr-2 block w-[15px] h-[15px] rounded-full"></span>
               {category}
             </Link>
           ))
